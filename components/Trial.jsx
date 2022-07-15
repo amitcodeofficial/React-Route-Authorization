@@ -11,4 +11,4 @@ class Trial extends Component {
   }
 }
 
-export default withRouter(Trial);
+export default Trial;

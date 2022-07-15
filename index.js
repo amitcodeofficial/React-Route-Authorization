@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Link,Switch } from 'react-router-dom';
 import Auth from './components/Auth';
@@ -9,6 +9,11 @@ import Topics from './components/Topics';
 import Trial from './components/Trial';
 
 // const [authorization, setAuthorization] = useState('');
+React.useEffect = (() => {
+  localStorage.setItem('permission',false);
+  console.log("hiii")
+}, []);
+
 
 const BasicExample = () => (
   <Router>
@@ -24,10 +29,10 @@ const BasicExample = () => (
       <hr />
       <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/topics" component={Topics} />
+      <Auth path="/topics" component={Topics} />
       <Auth path='/about' component={ About } />
       {/* <Route exact path='/trial' component={Trial} /> */}
-      {/* <Auth path='/trial' component={Trial} auth={true}/> */}
+      <Auth path='/trial' component={Trial}/>
       </Switch>
     </div>
   </Router>

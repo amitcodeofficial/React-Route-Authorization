@@ -1,13 +1,19 @@
 const Permission = {
   isAuthenticated: false,
   authenticate() {
-    this.isAuthenticated = true;
+    // this.isAuthenticated = true;
+    localStorage.setItem('permission',true);
   },
   removeAuthenticate() {
-    this.isAuthenticated = false;
+    // this.isAuthenticated = false;
+    localStorage.removeItem('permission');
   },
   getAuthenticated() {
-    return this.isAuthenticated;
+    if(this.authenticate==false){
+      return this.isAuthenticated;
+    }else{
+      return localStorage.getItem("permission");
+    }
   },
 };
 
