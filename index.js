@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Link,Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Auth from './components/Auth';
 
 import About from './components/About';
@@ -8,31 +8,30 @@ import Home from './components/Home';
 import Topics from './components/Topics';
 import Trial from './components/Trial';
 
-// const [authorization, setAuthorization] = useState('');
-React.useEffect = (() => {
-  localStorage.setItem('permission',false);
-  console.log("hiii")
-}, []);
-
-
 const BasicExample = () => (
   <Router>
     <div>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-        <li><Link to='/trial'>Trial</Link></li>
-        {/* <button onClick={() => {}}>Submit</button> */}
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/topics">Topics</Link>
+        </li>
+        <li>
+          <Link to="/trial">Trial</Link>
+        </li>
       </ul>
 
       <hr />
       <Switch>
-      <Route path="/" exact component={Home} />
-      <Auth path="/topics" component={Topics} />
-      <Auth path='/about' component={ About } />
-      {/* <Route exact path='/trial' component={Trial} /> */}
-      <Auth path='/trial' component={Trial}/>
+        <Route path="/" exact component={Home} />
+        <Auth path="/topics" exact component={Topics} />
+        <Auth path="/about" exact component={About} />
+        <Auth path="/trial" exact component={Trial} />
       </Switch>
     </div>
   </Router>
